@@ -1,5 +1,7 @@
 PODS:
-  - IGCocos2d (0.1.0)
+  - IGCocos2d (0.1.0):
+    - IGCocos2d/CocosDenshion
+  - IGCocos2d/CocosDenshion (0.1.0)
 
 DEPENDENCIES:
   - IGCocos2d (from `../IGCocos2d.podspec`)
@@ -9,6 +11,6 @@ EXTERNAL SOURCES:
     :path: ../IGCocos2d.podspec
 
 SPEC CHECKSUMS:
-  IGCocos2d: 9d1358747642378af719e217ac7ebdc4bbfd7685
+  IGCocos2d: b4108ab3d9758931ceffd94804a1bed776cfd93d
 
 COCOAPODS: 0.29.0
