@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: ../IGCocos2d.podspec
 
 SPEC CHECKSUMS:
-  IGCocos2d: e8f0f5cb6c15ddb4aa005156985c971d10bbe7c8
+  IGCocos2d: a5f5ec89e8c16ea29a25184126c06f6495a6acab
   SSZipArchive: 47d0589a15452311749a4eeecb97e12800d127de
 
 COCOAPODS: 0.29.0

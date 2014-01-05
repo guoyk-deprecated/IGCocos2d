@@ -19,6 +19,10 @@ Pod::Spec.new do |s|
   s.frameworks = ["OpenGLES", "QuartzCore", "GameKit", "CoreText"]
   s.library    =  'z'
 
+  s.prefix_header_contents = '''
+#define CC_ENABLE_GL_STATE_CACHE 1
+'''
+
   s.subspec 'CocosDenshion' do |p|
     p.source_files =  'Classes/CocosDenshion/*.{h,m}'
     p.frameworks   =  ["OpenAL", "AVFoundation", "AudioToolbox"]
