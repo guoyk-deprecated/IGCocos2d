@@ -24,4 +24,9 @@ Pod::Spec.new do |s|
     p.frameworks   =  ["OpenAL", "AVFoundation", "AudioToolbox"]
   end
 
+  s.subspec 'CCBReader' do |p|
+    p.source_files = 'Classes/CCBReader/**/*.{h,m,fsh}'
+    p.dependency 'SSZipArchive'
+  end
+
 end

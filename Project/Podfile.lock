@@ -1,7 +1,11 @@
 PODS:
   - IGCocos2d (0.1.0):
+    - IGCocos2d/CCBReader
     - IGCocos2d/CocosDenshion
+  - IGCocos2d/CCBReader (0.1.0):
+    - SSZipArchive
   - IGCocos2d/CocosDenshion (0.1.0)
+  - SSZipArchive (0.3.1)
 
 DEPENDENCIES:
   - IGCocos2d (from `../IGCocos2d.podspec`)
@@ -11,6 +15,7 @@ EXTERNAL SOURCES:
     :path: ../IGCocos2d.podspec
 
 SPEC CHECKSUMS:
-  IGCocos2d: b4108ab3d9758931ceffd94804a1bed776cfd93d
+  IGCocos2d: e8f0f5cb6c15ddb4aa005156985c971d10bbe7c8
+  SSZipArchive: 47d0589a15452311749a4eeecb97e12800d127de
 
 COCOAPODS: 0.29.0
