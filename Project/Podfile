@@ -1,7 +1,9 @@
-pod "IGCocos2d", :path => "../IGCocos2d.podspec"
+platform :ios, "5.1"
 
-target "Demo" do
+target "IGCocos2d-Demo" do
+    pod "IGCocos2d", :path => "../IGCocos2d.podspec"
 end
 
-target "DemoTests" do
+target "IGCocos2d-DemoTests" do
+    pod "IGCocos2d", :path => "../IGCocos2d.podspec"
 end
