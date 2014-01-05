@@ -3,10 +3,10 @@ Pod::Spec.new do |s|
   s.version      = "0.1.0"
   s.summary      = "Modified cocos2d library"
   s.description  = "Modified cocos2d library, integrated with ccb"
-  s.homepage     = "https://bitbucket.org/ireulguo/igcocos2d"
+  s.homepage     = "https://github.com/ireulguo/IGCocos2d"
   s.license      = 'MIT'
   s.author       = { "MAGI Ireul" => "magi.ireul@gmail.com" }
-  s.source       = { :git => "https://ireulguo@bitbucket.org/ireulguo/igcocos2d.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/ireulguo/IGCocos2d.git", :tag => s.version.to_s }
 
   s.ios.deployment_target = '5.1'
   s.osx.deployment_target = '10.7'
