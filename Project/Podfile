@@ -1,0 +1,7 @@
+pod "IGCocos2d", :path => "../IGCocos2d.podspec"
+
+target "Demo" do
+end
+
+target "DemoTests" do
+end
