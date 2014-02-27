@@ -27,9 +27,7 @@
 
 @class CCBAnimationManager;
 
-#define kCCBVersion 3
-
-#define CCB_ENABLE_UNZIP
+#define kCCBVersion 5
 
 enum {
     kCCBPropTypePosition = 0,
@@ -58,7 +56,8 @@ enum {
     kCCBPropTypeCCBFile,
     kCCBPropTypeString,
     kCCBPropTypeBlockCCControl,
-    kCCBPropTypeFloatScale
+    kCCBPropTypeFloatScale,
+    kCCBPropTypeFloatXY,
 };
 
 enum {
@@ -107,6 +106,8 @@ enum
 
 @interface CCBReader : NSObject
 {
+    BOOL jsControlled;
+    
     NSData* data;
     unsigned char* bytes;
     int currentByte;
@@ -120,11 +121,36 @@ enum
     CCBAnimationManager* actionManager;
     NSMutableDictionary* actionManagers;
     NSMutableSet* animatedProps;
+    
+    // For JavaScript bindings
+    NSMutableArray* ownerOutletNames;
+    NSMutableArray* ownerOutletNodes;
+    
+    NSMutableArray* ownerCallbackNames;
+    NSMutableArray* ownerCallbackNodes;
+    
+    NSMutableArray* nodesWithAnimationManagers;
+    NSMutableArray* animationManagersForNodes;
 }
+
+@property (nonatomic,readonly) NSMutableArray* ownerOutletNames;
+@property (nonatomic,readonly) NSMutableArray* ownerOutletNodes;
+@property (nonatomic,readonly) NSMutableArray* ownerCallbackNames;
+@property (nonatomic,readonly) NSMutableArray* ownerCallbackNodes;
+@property (nonatomic,readonly) NSMutableArray* nodesWithAnimationManagers;
+@property (nonatomic,readonly) NSMutableArray* animationManagersForNodes;
 
 @property (nonatomic,retain) CCBAnimationManager* actionManager;
 
 + (NSString*) ccbDirectoryPath;
+
++ (CCBReader*) reader;
+
+- (CCNode*) nodeGraphFromFile:(NSString*) file;
+- (CCNode*) nodeGraphFromFile:(NSString*) file owner:(id)owner;
+- (CCNode*) nodeGraphFromFile:(NSString*) file owner:(id)owner parentSize:(CGSize)parentSize;
+
+- (CCNode*) nodeGraphFromData:(NSData*) data owner:(id)owner parentSize:(CGSize)parentSize;
 
 + (CCNode*) nodeGraphFromFile:(NSString*) file;
 + (CCNode*) nodeGraphFromFile:(NSString*) file owner:(id)owner;
@@ -138,15 +164,13 @@ enum
 
 + (void) setResolutionScale:(float)scale;
 
+// XXX Hack. Sets a search resource path for utils. Instead it should relative to the ccbi file path.
++ (void) setResourcePath:(NSString*)searchPath;
+
+
 #ifdef CCB_ENABLE_UNZIP
 + (BOOL) unzipResources:(NSString*)resPath;
 #endif
 
 @end
 
-@interface CCBFileUtils : CCFileUtils
-{
-    NSString* ccbDirectoryPath;
-}
-@property (nonatomic,copy) NSString* ccbDirectoryPath;
-@end
